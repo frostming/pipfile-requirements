@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pipfile-requirements"
-version = "0.1.0"
+version = "0.1.0post0"
 description = "A CLI tool to covert Pipfile/Pipfile.lock to requirments.txt"
 authors = ["Frost Ming <mianghong@gmail.com>"]
 license = "MIT"
