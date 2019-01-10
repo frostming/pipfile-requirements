@@ -2,6 +2,10 @@ import subprocess
 import pytest
 
 
+def compare_requirements(left, right):
+    return len(set(left.splitlines()) - set(right.splitlines())) == 0
+
+
 @pytest.mark.parametrize(
     "command,golden_file",
     [
@@ -20,6 +24,6 @@ def test_convert_pipfile(command, golden_file):
     )
     output, err = proc.communicate()
     with open(golden_file) as f:
-        assert output.decode("utf-8").strip().replace(
+        assert compare_requirements(output.decode("utf-8").strip().replace(
             "\r\n", "\n"
-        ) == f.read().strip().replace("\r\n", "\n")
+        ), f.read().strip().replace("\r\n", "\n"))
