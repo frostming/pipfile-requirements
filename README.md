@@ -1,6 +1,10 @@
 # pipfile-requirements
 CLI tool to covert Pipfile/Pipfile.lock to requirments.txt
 
+[![Build Status](https://travis-ci.org/frostming/pipfile-requirements.svg?branch=master)](https://travis-ci.org/frostming/pipfile-requirements)
+[![](https://img.shields.io/pypi/v/pipfile-requirements.svg)](https://pypi.org/project/pipfile-requirements)
+[![](https://img.shields.io/pypi/pyversions/pipfile-requirements.svg)](https://pypi.org/project/pipfile-requirements)
+
 ## Required Python version
 
 `>=2.7, >=3.4`
