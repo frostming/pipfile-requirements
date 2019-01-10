@@ -1,0 +1,12 @@
+language: python
+
+cache: pip
+
+install:
+  - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+  - poetry install -v
+
+script: poetry run pytest -v
+
+notifications:
+  email: false

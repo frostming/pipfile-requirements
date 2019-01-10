@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask-babel = "*"
+flask-login = "*"
+flask-migrate = "*"
+flask-moment = "*"
+flask-sqlalchemy = "*"
+flask-wtf = "*"
+flask = "*"
+python-slugify = "*"
+pyyaml = "*"
+six = "*"
+marko = "*"
+gunicorn = "*"
+psycopg2 = "*"
+flask-assets = "*"
+flask-bootstrap = "*"
+cssmin = "*"
+jsmin = "*"
+flask-whooshee = "*"
+
+[dev-packages]
+"flake8" = "*"
+flask-shell-ipython = "*"

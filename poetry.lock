@@ -1,0 +1,530 @@
+[[package]]
+category = "main"
+description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+name = "appdirs"
+optional = false
+python-versions = "*"
+version = "1.4.3"
+
+[[package]]
+category = "dev"
+description = "Atomic file writes."
+name = "atomicwrites"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.2.1"
+
+[[package]]
+category = "main"
+description = "Classes Without Boilerplate"
+name = "attrs"
+optional = false
+python-versions = "*"
+version = "18.2.0"
+
+[[package]]
+category = "main"
+description = "backports.functools_lru_cache"
+marker = "python_version <= \"3.4\""
+name = "backports.functools-lru-cache"
+optional = false
+python-versions = ">=2.6"
+version = "1.5"
+
+[[package]]
+category = "main"
+description = "A backport of the get_terminal_size function from Python 3.3's shutil."
+marker = "python_version < \"3.3\""
+name = "backports.shutil-get-terminal-size"
+optional = false
+python-versions = "*"
+version = "1.0.0"
+
+[[package]]
+category = "main"
+description = "Backport of new features in Python's weakref module"
+marker = "python_version < \"3.3\""
+name = "backports.weakref"
+optional = false
+python-versions = "*"
+version = "1.0.post1"
+
+[[package]]
+category = "main"
+description = "Lightweight, extensible schema and data validation tool for Python dictionaries."
+marker = "extra == \"validation\""
+name = "cerberus"
+optional = false
+python-versions = "*"
+version = "1.2"
+
+[[package]]
+category = "main"
+description = "Python package for providing Mozilla's CA Bundle."
+name = "certifi"
+optional = false
+python-versions = "*"
+version = "2018.11.29"
+
+[[package]]
+category = "main"
+description = "Universal encoding detector for Python 2 and 3"
+name = "chardet"
+optional = false
+python-versions = "*"
+version = "3.0.4"
+
+[[package]]
+category = "main"
+description = "Cross-platform colored terminal text."
+name = "colorama"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.4.1"
+
+[[package]]
+category = "dev"
+description = "This library brings the updated configparser from Python 3.5 to Python 2.6-3.5."
+marker = "python_version < \"3.2\""
+name = "configparser"
+optional = false
+python-versions = "*"
+version = "3.5.0"
+
+[[package]]
+category = "main"
+description = "A small Python package to hide or show the terminal cursor"
+marker = "extra == \"spinner\""
+name = "cursor"
+optional = false
+python-versions = "*"
+version = "1.2.0"
+
+[[package]]
+category = "main"
+description = "Distribution utilities"
+name = "distlib"
+optional = false
+python-versions = "*"
+version = "0.2.8"
+
+[[package]]
+category = "main"
+description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
+marker = "python_version >= \"2.7\" and python_version < \"2.8\" or python_version < \"3.4\""
+name = "enum34"
+optional = false
+python-versions = "*"
+version = "1.1.6"
+
+[[package]]
+category = "main"
+description = "Return the first true value of an iterable."
+name = "first"
+optional = false
+python-versions = "*"
+version = "2.0.1"
+
+[[package]]
+category = "dev"
+description = "the modular source code checker: pep8, pyflakes and co"
+name = "flake8"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.6.0"
+
+[package.dependencies]
+mccabe = ">=0.6.0,<0.7.0"
+pycodestyle = ">=2.4.0,<2.5.0"
+pyflakes = ">=2.0.0,<2.1.0"
+setuptools = ">=30"
+
+[package.dependencies.configparser]
+python = "<3.2"
+version = "*"
+
+[package.dependencies.enum34]
+python = "<3.4"
+version = "*"
+
+[[package]]
+category = "dev"
+description = "Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+"
+marker = "python_version < \"3.0\""
+name = "funcsigs"
+optional = false
+python-versions = "*"
+version = "1.0.2"
+
+[[package]]
+category = "main"
+description = "Backport of the functools module from Python 3.2.3 for use on 2.7 and PyPy."
+marker = "python_version >= \"2.7\" and python_version < \"2.8\""
+name = "functools32"
+optional = false
+python-versions = "*"
+version = "3.2.3-2"
+
+[[package]]
+category = "main"
+description = "Internationalized Domain Names in Applications (IDNA)"
+name = "idna"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.8"
+
+[[package]]
+category = "dev"
+description = "McCabe checker, plugin for flake8"
+name = "mccabe"
+optional = false
+python-versions = "*"
+version = "0.6.1"
+
+[[package]]
+category = "dev"
+description = "More routines for operating on iterables, beyond itertools"
+name = "more-itertools"
+optional = false
+python-versions = "*"
+version = "5.0.0"
+
+[package.dependencies]
+six = ">=1.0.0,<2.0.0"
+
+[[package]]
+category = "main"
+description = "Core utilities for Python packages"
+name = "packaging"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "18.0"
+
+[package.dependencies]
+pyparsing = ">=2.0.2"
+six = "*"
+
+[[package]]
+category = "main"
+description = "Object-oriented filesystem paths"
+marker = "python_version < \"3.6\""
+name = "pathlib2"
+optional = false
+python-versions = "*"
+version = "2.3.3"
+
+[package.dependencies]
+six = "*"
+
+[package.dependencies.scandir]
+python = "<3.5"
+version = "*"
+
+[[package]]
+category = "main"
+description = "Wrappers to build Python packages using PEP 517 hooks"
+name = "pep517"
+optional = false
+python-versions = "*"
+version = "0.5.0"
+
+[package.dependencies]
+pytoml = "*"
+
+[[package]]
+category = "main"
+description = "Compatibility shims for pip versions 8 thru current."
+name = "pip-shims"
+optional = false
+python-versions = ">=2.6,!=3.0,!=3.1,!=3.2,!=3.3"
+version = "0.3.2"
+
+[package.dependencies]
+pip = "*"
+setuptools = "*"
+six = "*"
+wheel = "*"
+
+[[package]]
+category = "main"
+description = "Structured Pipfile and Pipfile.lock models."
+name = "plette"
+optional = false
+python-versions = ">=2.6,!=3.0,!=3.1,!=3.2,!=3.3"
+version = "0.2.2"
+
+[package.dependencies]
+cerberus = "*"
+six = "*"
+tomlkit = "*"
+
+[[package]]
+category = "dev"
+description = "plugin and hook calling mechanisms for python"
+name = "pluggy"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.8.1"
+
+[[package]]
+category = "dev"
+description = "library with cross-python path, ini-parsing, io, code, log facilities"
+name = "py"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.7.0"
+
+[[package]]
+category = "dev"
+description = "Python style guide checker"
+name = "pycodestyle"
+optional = false
+python-versions = "*"
+version = "2.4.0"
+
+[[package]]
+category = "dev"
+description = "passive checker of Python programs"
+name = "pyflakes"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.0.0"
+
+[[package]]
+category = "main"
+description = "Python parsing module"
+name = "pyparsing"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "2.3.0"
+
+[[package]]
+category = "dev"
+description = "pytest: simple powerful testing with Python"
+name = "pytest"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "4.1.0"
+
+[package.dependencies]
+atomicwrites = ">=1.0"
+attrs = ">=17.4.0"
+colorama = "*"
+more-itertools = ">=4.0.0"
+pluggy = ">=0.7"
+py = ">=1.5.0"
+setuptools = "*"
+six = ">=1.10.0"
+
+[package.dependencies.funcsigs]
+python = "<3.0"
+version = "*"
+
+[package.dependencies.pathlib2]
+python = "<3.6"
+version = ">=2.2.0"
+
+[[package]]
+category = "main"
+description = "A parser for TOML-0.4.0"
+name = "pytoml"
+optional = false
+python-versions = "*"
+version = "0.1.20"
+
+[[package]]
+category = "main"
+description = "Python HTTP for Humans."
+name = "requests"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.21.0"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+chardet = ">=3.0.2,<3.1.0"
+idna = ">=2.5,<2.9"
+urllib3 = ">=1.21.1,<1.25"
+
+[[package]]
+category = "main"
+description = "A tool for converting between pip-style and pipfile requirements."
+name = "requirementslib"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+version = "1.3.3"
+
+[package.dependencies]
+appdirs = "*"
+attrs = "*"
+distlib = ">=0.2.8"
+first = "*"
+packaging = "*"
+pep517 = "*"
+pip-shims = ">=0.3.2"
+plette = "*"
+requests = "*"
+setuptools = ">=38.2.5"
+six = "*"
+tomlkit = ">=0.5.2"
+vistir = ">=0.2.5"
+
+[package.dependencies.scandir]
+python = "<3.5"
+version = "*"
+
+[package.dependencies.typing]
+python = "<3.5"
+version = "*"
+
+[[package]]
+category = "main"
+description = "scandir, a better directory iterator and faster os.walk()"
+marker = "python_version < \"3.5\""
+name = "scandir"
+optional = false
+python-versions = "*"
+version = "1.9.0"
+
+[[package]]
+category = "main"
+description = "Python 2 and 3 compatibility utilities"
+name = "six"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "1.12.0"
+
+[[package]]
+category = "main"
+description = "Style preserving TOML library"
+name = "tomlkit"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.5.3"
+
+[package.dependencies]
+[package.dependencies.enum34]
+python = ">=2.7,<2.8"
+version = ">=1.1,<2.0"
+
+[package.dependencies.functools32]
+python = ">=2.7,<2.8"
+version = ">=3.2.3,<4.0.0"
+
+[package.dependencies.typing]
+python = ">=2.7,<2.8 || >=3.4,<3.5"
+version = ">=3.6,<4.0"
+
+[[package]]
+category = "main"
+description = "Type Hints for Python"
+marker = "python_version >= \"2.7\" and python_version < \"2.8\" or python_version >= \"3.4\" and python_version < \"3.5\" or python_version < \"3.5\""
+name = "typing"
+optional = false
+python-versions = "*"
+version = "3.6.6"
+
+[[package]]
+category = "main"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+name = "urllib3"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, <4"
+version = "1.24.1"
+
+[[package]]
+category = "main"
+description = "Miscellaneous utilities for dealing with filesystems, paths, projects, subprocesses, and more."
+name = "vistir"
+optional = false
+python-versions = ">=2.6,!=3.0,!=3.1,!=3.2,!=3.3"
+version = "0.3.0"
+
+[package.dependencies]
+colorama = "*"
+cursor = "*"
+requests = "*"
+six = "*"
+yaspin = "*"
+
+[package.dependencies."backports.functools-lru-cache"]
+python = "<=3.4"
+version = "*"
+
+[package.dependencies."backports.shutil-get-terminal-size"]
+python = "<3.3"
+version = "*"
+
+[package.dependencies."backports.weakref"]
+python = "<3.3"
+version = "*"
+
+[package.dependencies.pathlib2]
+python = "<3.5"
+version = "*"
+
+[[package]]
+category = "main"
+description = "A built-package format for Python."
+name = "wheel"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.32.3"
+
+[[package]]
+category = "main"
+description = "Yet Another Terminal Spinner"
+marker = "extra == \"spinner\""
+name = "yaspin"
+optional = false
+python-versions = "*"
+version = "0.14.0"
+
+[metadata]
+content-hash = "911d559fbbfdde7a793ec17f9b26edd6d314813bf211a896d4993cce110e7d06"
+python-versions = "~2.7 || ^3.4"
+
+[metadata.hashes]
+appdirs = ["9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92", "d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"]
+atomicwrites = ["0312ad34fcad8fac3704d441f7b317e50af620823353ec657a53e981f92920c0", "ec9ae8adaae229e4f8446952d204a3e4b5fdd2d099f9be3aaf556120135fb3ee"]
+attrs = ["10cbf6e27dbce8c30807caf056c8eb50917e0eaafe86347671b57254006c3e69", "ca4be454458f9dec299268d472aaa5a11f67a4ff70093396e1ceae9c76cf4bbb"]
+"backports.functools-lru-cache" = ["9d98697f088eb1b0fa451391f91afb5e3ebde16bbdb272819fd091151fda4f1a", "f0b0e4eba956de51238e17573b7087e852dfe9854afd2e9c873f73fc0ca0a6dd"]
+"backports.shutil-get-terminal-size" = ["0975ba55054c15e346944b38956a4c9cbee9009391e41b86c68990effb8c1f64", "713e7a8228ae80341c70586d1cc0a8caa5207346927e23d09dcbcaf18eadec80"]
+"backports.weakref" = ["81bc9b51c0abc58edc76aefbbc68c62a787918ffe943a37947e162c3f8e19e82", "bc4170a29915f8b22c9e7c4939701859650f2eb84184aee80da329ac0b9825c2"]
+cerberus = ["f5c2e048fb15ecb3c088d192164316093fcfa602a74b3386eefb2983aa7e800a"]
+certifi = ["47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7", "993f830721089fef441cdfeb4b2c8c9df86f0c63239f06bd025a76a7daddb033"]
+chardet = ["84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae", "fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"]
+colorama = ["05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d", "f8ac84de7840f5b9c4e3347b3c1eaa50f7e49c2b07596221daec5edaabbd7c48"]
+configparser = ["5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"]
+cursor = ["8ee9fe5b925e1001f6ae6c017e93682583d2b4d1ef7130a26cfcdf1651c0032c"]
+distlib = ["57977cd7d9ea27986ec62f425630e4ddb42efe651ff80bc58ed8dbc3c7c21f19"]
+enum34 = ["2d81cbbe0e73112bdfe6ef8576f2238f2ba27dd0d55752a776c41d38b7da2850", "644837f692e5f550741432dd3f223bbb9852018674981b1664e5dc339387588a", "6bd0f6ad48ec2aa117d3d141940d484deccda84d4fcd884f5c3d93c23ecd8c79", "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"]
+first = ["3bb3de3582cb27071cfb514f00ed784dc444b7f96dc21e140de65fe00585c95e", "41d5b64e70507d0c3ca742d68010a76060eea8a3d863e9b5130ab11a4a91aa0e"]
+flake8 = ["6a35f5b8761f45c5513e3405f110a86bea57982c3b75b766ce7b65217abe1670", "c01f8a3963b3571a8e6bd7a4063359aff90749e160778e03817cd9b71c9e07d2"]
+funcsigs = ["330cc27ccbf7f1e992e69fef78261dc7c6569012cf397db8d3de0234e6c937ca", "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"]
+functools32 = ["89d824aa6c358c421a234d7f9ee0bd75933a67c29588ce50aaa3acdf4d403fa0", "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"]
+idna = ["c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407", "ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"]
+mccabe = ["ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42", "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"]
+more-itertools = ["38a936c0a6d98a38bcc2d03fdaaedaba9f412879461dd2ceff8d37564d6522e4", "c0a5785b1109a6bd7fac76d6837fd1feca158e54e521ccd2ae8bfe393cc9d4fc", "fe7a7cae1ccb57d33952113ff4fa1bc5f879963600ed74918f1236e212ee50b9"]
+packaging = ["0886227f54515e592aaa2e5a553332c73962917f2831f1b0f9b9f4380a4b9807", "f95a1e147590f204328170981833854229bb2912ac3d5f89e2a8ccd2834800c9"]
+pathlib2 = ["25199318e8cc3c25dcb45cbe084cc061051336d5a9ea2a12448d3d8cb748f742", "5887121d7f7df3603bca2f710e7219f3eca0eb69e0b7cc6e0a022e155ac931a7"]
+pep517 = ["43a7aa3902efd305a605c1028e4045968cd012831233ecab633a31d3ba4860a5", "cb5ca55450b64e80744cd5c32f7d5b8928004042dfea50fdc3f96ad7f27cba96"]
+pip-shims = ["3bc24ec050a6b9eea35419467237e4f47eaf806dadc9999bf887355c377edea7", "edb4cf3c509eab2f36b55c1ac1a59a4c485ccd537cc87934d74950880f641256"]
+plette = ["c0e3553c1e581d8423daccbd825789c6e7f29b7d9e00e5331b12e1642a1a26d3", "dde5d525cf5f0cbad4d938c83b93db17887918daf63c13eafed257c4f61b07b4"]
+pluggy = ["8ddc32f03971bfdf900a81961a48ccf2fb677cf7715108f85295c67405798616", "980710797ff6a041e9a73a5787804f848996ecaa6f8a1b1e08224a5894f2074a"]
+py = ["bf92637198836372b520efcba9e020c330123be8ce527e535d185ed4b6f45694", "e76826342cefe3c3d5f7e8ee4316b80d1dd8a300781612ddbc765c17ba25a6c6"]
+pycodestyle = ["74abc4e221d393ea5ce1f129ea6903209940c1ecd29e002e8c6933c2b21026e0", "cbc619d09254895b0d12c2c691e237b2e91e9b2ecf5e84c26b35400f93dcfb83", "cbfca99bd594a10f674d0cd97a3d802a1fdef635d4361e1a2658de47ed261e3a"]
+pyflakes = ["9a7662ec724d0120012f6e29d6248ae3727d821bba522a0e6b356eff19126a49", "f661252913bc1dbe7fcfcbf0af0db3f42ab65aabd1a6ca68fe5d466bace94dae"]
+pyparsing = ["40856e74d4987de5d01761a22d1621ae1c7f8774585acae358aa5c5936c6c90b", "f353aab21fd474459d97b709e527b5571314ee5f067441dc9f88e33eecd96592"]
+pytest = ["3e65a22eb0d4f1bdbc1eacccf4a3198bf8d4049dea5112d70a0c61b00e748d02", "5924060b374f62608a078494b909d341720a050b5224ff87e17e12377486a71d"]
+pytoml = ["ca2d0cb127c938b8b76a9a0d0f855cf930c1d50cc3a0af6d3595b566519a1013"]
+requests = ["502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e", "7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"]
+requirementslib = ["c2c00c7bd3bd4984c97d10cd4d143efbe33b5ed9e55961bea30ca7a9a4927289", "dc6b692e8dee03d6e90c29db1e337b0bf8152cce84a57f0fb4765e596afde4e0"]
+scandir = ["04b8adb105f2ed313a7c2ef0f1cf7aff4871aa7a1883fa4d8c44b5551ab052d6", "1444134990356c81d12f30e4b311379acfbbcd03e0bab591de2696a3b126d58e", "1b5c314e39f596875e5a95dd81af03730b338c277c54a454226978d5ba95dbb6", "346619f72eb0ddc4cf355ceffd225fa52506c92a2ff05318cfabd02a144e7c4e", "44975e209c4827fc18a3486f257154d34ec6eaec0f90fef0cca1caa482db7064", "61859fd7e40b8c71e609c202db5b0c1dbec0d5c7f1449dec2245575bdc866792", "a5e232a0bf188362fa00123cc0bb842d363a292de7126126df5527b6a369586a", "c14701409f311e7a9b7ec8e337f0815baf7ac95776cc78b419a1e6d49889a383", "c7708f29d843fc2764310732e41f0ce27feadde453261859ec0fca7865dfc41b", "c9009c527929f6e25604aec39b0a43c3f831d2947d89d6caaab22f057b7055c8", "f5c71e29b4e2af7ccdc03a020c626ede51da471173b4a6ad1e904f2b2e04b4bd"]
+six = ["3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c", "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"]
+tomlkit = ["d6506342615d051bc961f70bfcfa3d29b6616cc08a3ddfd4bc24196f16fd4ec2", "f077456d35303e7908cc233b340f71e0bec96f63429997f38ca9272b7d64029e"]
+typing = ["4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d", "57dcf675a99b74d64dacf6fba08fb17cf7e3d5fdff53d4a30ea2a5e7e52543d4", "a4c8473ce11a65999c8f59cb093e70686b6c84c98df58c1dae9b3b196089858a"]
+urllib3 = ["61bf29cada3fc2fbefad4fdf059ea4bd1b4a86d2b6d15e1c7c0b582b9752fe39", "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"]
+vistir = ["510408ec63a4b423967fd630bf0885c8d6a1d5d126f8bb1be6aba86a0da5e815", "fc5cca7a14e92feaa6f85dd91da74d834904280a96a21190aecb4cd1d1048e0e"]
+wheel = ["029703bf514e16c8271c3821806a1c171220cc5bdd325cbf4e7da1e056a01db6", "1e53cdb3f808d5ccd0df57f964263752aa74ea7359526d3da6c02114ec1e1d44"]
+yaspin = ["36fdccc5e0637b5baa8892fe2c3d927782df7d504e9020f40eb2c1502518aa5a", "8e52bf8079a48e2a53f3dfeec9e04addb900c101d1591c85df69cf677d3237e7"]
