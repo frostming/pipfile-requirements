@@ -2,6 +2,7 @@
 CLI tool to covert Pipfile/Pipfile.lock to requirments.txt
 
 [![Build Status](https://travis-ci.org/frostming/pipfile-requirements.svg?branch=master)](https://travis-ci.org/frostming/pipfile-requirements)
+[![Build status](https://ci.appveyor.com/api/projects/status/gketl2i4mhjt53l5?svg=true)](https://ci.appveyor.com/project/frostming/pipfile-requirements)
 [![](https://img.shields.io/pypi/v/pipfile-requirements.svg)](https://pypi.org/project/pipfile-requirements)
 [![](https://img.shields.io/pypi/pyversions/pipfile-requirements.svg)](https://pypi.org/project/pipfile-requirements)
 
@@ -11,7 +12,7 @@ CLI tool to covert Pipfile/Pipfile.lock to requirments.txt
 
 ## What does it do?
 
-The tool is built on top of [requirementslib][https://github.com/sarugaku/requirementslib] to provide a simple CLI to
+The tool is built on top of [requirementslib](https://github.com/sarugaku/requirementslib) to provide a simple CLI to
 convert the Pipenv-managed files to requirements.txt.
 
 Pipenv is a great tool for managing virtualenvs and dependencies, but it may be not that useful in deployment.
