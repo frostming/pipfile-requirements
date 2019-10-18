@@ -34,5 +34,6 @@ def test_convert_include_hash():
     proc = subprocess.Popen(
         command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
     )
-    proc.communicate()
+    _, err = proc.communicate()
+    print(err)
     assert proc.returncode == 0
