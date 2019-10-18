@@ -11,6 +11,7 @@ setup(
     description="A CLI tool to covert Pipfile/Pipfile.lock to requirments.txt",
     url="https://github.com/frostming/pipfile-requirements",
     long_description=README,
+    long_description_content_type="text/markdown",
     author="Frost Ming",
     py_modules=["pipfile_requirements"],
     author_email="mianghong@gmail.com",
