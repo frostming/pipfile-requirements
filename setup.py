@@ -7,7 +7,7 @@ with io.open("README.md", encoding="utf-8") as f:
 
 setup(
     name="pipfile-requirements",
-    version="0.1.1-dev",
+    version="0.1.1",
     description="A CLI tool to covert Pipfile/Pipfile.lock to requirments.txt",
     url="https://github.com/frostming/pipfile-requirements",
     long_description=README,
