@@ -10,15 +10,9 @@ environment:
     - PYTHON: "C:/Python36-x64"
     - PYTHON: "C:/Python37-x64"
 
-
 install:
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-
-  # Installing Poetry
-  - "curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python"
-  - "SET PATH=%USERPROFILE%\\.poetry\\bin;%PATH%"
-  # Install dependencies
-  - "poetry install -v"
+  - "python -m pip install --upgrade pip setuptools"
+  - "pip install -r requirements.txt"
 
 test_script:
-  - "poetry run pytest -v"
+  - "pytest -v"

@@ -3,11 +3,10 @@ language: python
 cache: pip
 
 install:
-  - curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-  - source $HOME/.poetry/env
-  - poetry install -v
+  - pip install -U pip setuptools
+  - pip install -r requirements.txt
 
-script: poetry run pytest -v
+script: pytest -v
 
 notifications:
   email: false
