@@ -5,14 +5,16 @@
     :author: frostming <mianghong@gmail.com>
     :license: MIT
 """
+import io
 import os
 import sys
 import json
 import argparse
+import tomlkit
 import warnings
 
 from vistir.compat import Path
-from requirementslib import Lockfile, Pipfile
+from requirementslib import Lockfile, Requirement
 
 if sys.version_info[:2] == (2, 7):
 
@@ -49,9 +51,11 @@ def parse_args():
 
 
 def _convert_pipfile(pipfile, dev=False):
-    pfile = Pipfile.load(pipfile)
-    requirements = pfile.dev_requirements if dev else pfile.requirements
-    return [req.as_line() for req in requirements]
+    section = "dev-packages" if dev else "packages"
+    with io.open(pipfile, encoding="utf-8") as f:
+        pipfile = tomlkit.loads(f.read())
+    reqs = [Requirement.from_pipfile(k, v) for k, v in pipfile[section].items()]
+    return [req.as_line() for req in reqs]
 
 
 def _convert_pipfile_lock(pipfile, hashes=False, dev=False):
@@ -81,7 +85,7 @@ def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False):
     if pipfile is None or not os.path.exists(full_path):
         raise FileNotFoundError("No Pipfile* is found.")
     try:
-        with open(full_path) as f:
+        with io.open(full_path, encoding="utf-8") as f:
             json.load(f)
     except Exception:
         if hashes:
