@@ -41,6 +41,13 @@ def parse_args():
         help="whether to choose the dev-dependencies section",
     )
     parser.add_argument(
+        "-s",
+        "--sources",
+        default=False,
+        action="store_true",
+        help="whether to include extra PyPi indexes",
+    )
+    parser.add_argument(
         "file",
         nargs="?",
         default=None,
@@ -50,20 +57,37 @@ def parse_args():
     return parser.parse_args()
 
 
-def _convert_pipfile(pipfile, dev=False):
+def _convert_pipfile(pipfile, dev=False, sources=False):
     section = "dev-packages" if dev else "packages"
     with io.open(pipfile, encoding="utf-8") as f:
         pipfile = tomlkit.loads(f.read())
+
     reqs = [Requirement.from_pipfile(k, v) for k, v in pipfile[section].items()]
-    return [req.as_line() for req in reqs]
+
+    data = [req.as_line() for req in reqs]
+
+    if sources:
+        for source in pipfile.get('source', []):
+            if source.get('name') != 'pypi':
+                data.append("--extra-index-url={}".format(source.get('url')))
+
+    return data
 
 
-def _convert_pipfile_lock(pipfile, hashes=False, dev=False):
+def _convert_pipfile_lock(pipfile, hashes=False, dev=False, sources=False):
     lockfile = Lockfile.load(pipfile)
-    return lockfile.as_requirements(hashes, dev=dev)
+
+    data = lockfile.as_requirements(hashes, dev=dev)
+
+    if sources:
+        for source in lockfile.lockfile.meta.sources:
+            if source.name != 'pypi':
+                data.append("--extra-index-url={}".format(source.url_expanded))
+
+    return data
 
 
-def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False):
+def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False, sources=False):
     """Convert given Pipfile/Pipfile.lock to requirements.txt content.
 
     :param project: the project path, default to `pwd`.
@@ -71,6 +95,7 @@ def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False):
                     Pipfile.lock first then Pipfile.
     :param hashes: whether to include hashes
     :param dev: whether to choose the dev-dependencies section.
+    :param sources: whether to include extra PyPi indexes
     :returns: the content of requirements.txt
     """
     if pipfile is None:
@@ -92,14 +117,14 @@ def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False):
             warnings.warn(
                 "Pipfile is given, the hashes flag won't take effect.", UserWarning
             )
-        return _convert_pipfile(full_path, dev)
+        return _convert_pipfile(full_path, dev, sources)
     else:
-        return _convert_pipfile_lock(full_path, hashes, dev)
+        return _convert_pipfile_lock(full_path, hashes, dev, sources)
 
 
 def main():
     args = parse_args()
-    lines = convert_pipfile_or_lock(args.project, args.file, args.hashes, args.dev)
+    lines = convert_pipfile_or_lock(args.project, args.file, args.hashes, args.dev, args.sources)
     for line in lines:
         print(line)
 

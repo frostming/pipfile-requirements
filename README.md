@@ -46,6 +46,7 @@ optional arguments:
                         Specify another project root
   --hashes              whether to include the hashes
   -d, --dev             whether to choose the dev-dependencies section
+  -s, --sources         whether to include extra PyPi indexes
 ```
 
 ## License
