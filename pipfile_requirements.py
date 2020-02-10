@@ -68,7 +68,9 @@ def _convert_pipfile(pipfile, dev=False, sources=False):
 
     if sources:
         for source in pipfile.get('source', []):
-            if source.get('name') != 'pypi':
+            if source.get('name') == 'pypi':
+                data.append("--index-url={}".format(source.get('url')))
+            else:
                 data.append("--extra-index-url={}".format(source.get('url')))
 
     return data
@@ -81,7 +83,9 @@ def _convert_pipfile_lock(pipfile, hashes=False, dev=False, sources=False):
 
     if sources:
         for source in lockfile.lockfile.meta.sources:
-            if source.name != 'pypi':
+            if source.name == 'pypi':
+                data.append("--index-url={}".format(source.url_expanded))
+            else:
                 data.append("--extra-index-url={}".format(source.url_expanded))
 
     return data
