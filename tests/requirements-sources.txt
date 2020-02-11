@@ -35,3 +35,5 @@ webassets==2.0
 werkzeug==0.16.0
 whoosh==2.7.4
 wtforms==2.2.1
+--index-url=https://pypi.org/simple
+--extra-index-url=https://pypi.example.com/simple

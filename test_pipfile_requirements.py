@@ -15,6 +15,8 @@ def compare_requirements(left, right):
         ("pipfile2req -p tests Pipfile", "tests/requirements-pipfile.txt"),
         ("pipfile2req -d tests/Pipfile", "tests/dev-requirements-pipfile.txt"),
         ("pipfile2req -d tests/Pipfile.lock", "tests/dev-requirements.txt"),
+        ("pipfile2req -p tests --sources", "tests/requirements-sources.txt"),
+        ("pipfile2req -p tests Pipfile --sources", "tests/requirements-pipfile-sources.txt"),
     ],
 )
 def test_convert_pipfile(command, golden_file):
