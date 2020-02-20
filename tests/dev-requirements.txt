@@ -1,4 +1,4 @@
-appnope==0.1.0; sys_platform == 'darwin'
+appnope==0.1.0; sys_platform == "darwin"
 backcall==0.1.0
 click==7.0
 decorator==4.4.1
@@ -14,7 +14,7 @@ jinja2==2.10.3
 markupsafe==1.1.1
 mccabe==0.6.1
 parso==0.5.2
-pexpect==4.8.0; sys_platform != 'win32'
+pexpect==4.8.0; sys_platform != "win32"
 pickleshare==0.7.5
 prompt-toolkit==3.0.2
 ptyprocess==0.6.0

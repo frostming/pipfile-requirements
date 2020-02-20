@@ -10,11 +10,10 @@ import os
 import sys
 import json
 import argparse
-import tomlkit
+import toml
 import warnings
 
-from vistir.compat import Path
-from requirementslib import Lockfile, Requirement
+from .requirements import requirement_from_pipfile
 
 if sys.version_info[:2] == (2, 7):
 
@@ -25,7 +24,7 @@ if sys.version_info[:2] == (2, 7):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "-p", "--project", default=".", type=Path, help="Specify another project root"
+        "-p", "--project", default=".", help="Specify another project root"
     )
     parser.add_argument(
         "--hashes",
@@ -57,41 +56,9 @@ def parse_args():
     return parser.parse_args()
 
 
-def _convert_pipfile(pipfile, dev=False, sources=False):
-    section = "dev-packages" if dev else "packages"
-    with io.open(pipfile, encoding="utf-8") as f:
-        pipfile = tomlkit.loads(f.read())
-
-    reqs = [Requirement.from_pipfile(k, v) for k, v in pipfile[section].items()]
-
-    data = [req.as_line() for req in reqs]
-
-    if sources:
-        for source in pipfile.get('source', []):
-            if source.get('name') == 'pypi':
-                data.append("--index-url={}".format(source.get('url')))
-            else:
-                data.append("--extra-index-url={}".format(source.get('url')))
-
-    return data
-
-
-def _convert_pipfile_lock(pipfile, hashes=False, dev=False, sources=False):
-    lockfile = Lockfile.load(pipfile)
-
-    data = lockfile.as_requirements(hashes, dev=dev)
-
-    if sources:
-        for source in lockfile.lockfile.meta.sources:
-            if source.name == 'pypi':
-                data.append("--index-url={}".format(source.url_expanded))
-            else:
-                data.append("--extra-index-url={}".format(source.url_expanded))
-
-    return data
-
-
-def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False, sources=False):
+def convert_pipfile_or_lock(
+    project, pipfile=None, hashes=False, dev=False, sources=False
+):
     """Convert given Pipfile/Pipfile.lock to requirements.txt content.
 
     :param project: the project path, default to `pwd`.
@@ -103,35 +70,47 @@ def convert_pipfile_or_lock(project, pipfile=None, hashes=False, dev=False, sour
     :returns: the content of requirements.txt
     """
     if pipfile is None:
-        if project.joinpath("Pipfile.lock").exists():
-            pipfile = "Pipfile.lock"
-        elif project.joinpath("Pipfile").exists():
-            pipfile = "Pipfile"
-    if pipfile and not Path(pipfile).is_absolute():
-        full_path = project.joinpath(pipfile).as_posix()
+        if os.path.exists(os.path.join(project, "Pipfile.lock")):
+            full_path = os.path.join(project, "Pipfile.lock")
+        else:
+            full_path = os.path.join(project, "Pipfile")
     else:
-        full_path = pipfile
-    if pipfile is None or not os.path.exists(full_path):
+        full_path = os.path.abspath(pipfile)
+    if not os.path.exists(full_path):
         raise FileNotFoundError("No Pipfile* is found.")
     try:
         with io.open(full_path, encoding="utf-8") as f:
-            json.load(f)
+            data = json.load(f)
+        packages = data["develop"] if dev else data["default"]
+        sources_data = data["_meta"].get("sources", [])
     except Exception:
         if hashes:
             warnings.warn(
                 "Pipfile is given, the hashes flag won't take effect.", UserWarning
             )
-        return _convert_pipfile(full_path, dev, sources)
-    else:
-        return _convert_pipfile_lock(full_path, hashes, dev, sources)
+        with io.open(full_path, encoding="utf-8") as f:
+            data = toml.load(f)
+        packages = data["dev-packages"] if dev else data["packages"]
+        hashes = False
+        sources_data = data.get("source", [])
+    lines = [
+        requirement_from_pipfile(name, package, hashes)
+        for name, package in packages.items()
+    ]
+
+    if sources:
+        for source in sources_data:
+            if source.get('name') == 'pypi':
+                lines.append("--index-url={}".format(source.get('url')))
+            else:
+                lines.append("--extra-index-url={}".format(source.get('url')))
+    return lines
 
 
 def main():
     args = parse_args()
-    lines = convert_pipfile_or_lock(args.project, args.file, args.hashes, args.dev, args.sources)
+    lines = convert_pipfile_or_lock(
+        args.project, args.file, args.hashes, args.dev, args.sources
+    )
     for line in lines:
         print(line)
-
-
-if __name__ == "__main__":
-    main()
