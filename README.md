@@ -1,5 +1,5 @@
 # pipfile-requirements
-CLI tool to covert Pipfile/Pipfile.lock to requirements.txt
+CLI tool to convert Pipfile/Pipfile.lock to requirements.txt
 
 [![Build Status](https://travis-ci.org/frostming/pipfile-requirements.svg?branch=master)](https://travis-ci.org/frostming/pipfile-requirements)
 [![Build status](https://ci.appveyor.com/api/projects/status/gketl2i4mhjt53l5?svg=true)](https://ci.appveyor.com/project/frostming/pipfile-requirements)
@@ -36,7 +36,7 @@ $ pipfile2req --help
 usage: pipfile2req [-h] [-p PROJECT] [--hashes] [-d] [file]
 
 positional arguments:
-  file                  The file path to covert, support both Pipfile and
+  file                  The file path to convert, support both Pipfile and
                         Pipfile.lock. If it isn't given, will try Pipfile.lock
                         first then Pipfile.
 
