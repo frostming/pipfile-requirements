@@ -50,7 +50,7 @@ def parse_args():
         "file",
         nargs="?",
         default=None,
-        help="The file path to covert, support both Pipfile and Pipfile.lock. "
+        help="The file path to convert, support both Pipfile and Pipfile.lock. "
         "If it isn't given, will try Pipfile.lock first then Pipfile.",
     )
     return parser.parse_args()
